@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>বাংলাদেশ রেলওয়ে - সাধারণ ও আনুষঙ্গিক নিয়মাবলী</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #e0eef4 0%, #cbdde6 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 5px 5px;
+      font-family: system-ui, -apple-system, 'Segoe UI', 'Noto Sans Bengali', 'SolaimanLipi', sans-serif;
+    }
+
+    /* মূল কন্টেইনার – লাইনের প্রস্থ 350px, কপি সুরক্ষা এখানেই */
+    .railway-preface {
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 28px 20px 36px;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+      animation: fadeScale 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      
+      /* কপি, সিলেক্ট, ডান-ক্লিক ব্লক */
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+
+    /* হোভার/টাচ ইফেক্ট */
+    .railway-preface:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 28px 40px -16px rgba(0, 0, 0, 0.25);
+    }
+
+    /* হেডার স্টাইল */
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .train-icon {
+      font-size: 48px;
+      display: inline-block;
+      animation: gentleBounce 2s infinite ease;
+      filter: drop-shadow(0 6px 8px rgba(0,105,92,0.2));
+    }
+
+    .header h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #005f56;
+      line-height: 1.4;
+      margin: 12px 0 0;
+      letter-spacing: -0.2px;
+      background: linear-gradient(135deg, #00695c, #009688);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .divider {
+      width: 70px;
+      height: 4px;
+      background: linear-gradient(90deg, #00bfa5, #80cbc4);
+      border-radius: 40px;
+      margin: 18px auto 8px;
+      transition: width 0.4s ease;
+    }
+
+    .railway-preface:hover .divider {
+      width: 110px;
+    }
+
+    /* প্যারাগ্রাফ – 18px ফন্ট */
+    p, .lead {
+      font-size: 18px;
+      line-height: 1.65;
+      margin-bottom: 20px;
+      color: #1e2f3e;
+      font-weight: 400;
+      word-break: break-word;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ড্রপ ক্যাপ */
+    .lead:first-letter {
+      float: left;
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 0.9;
+      padding: 6px 8px 0 0;
+      color: #00897b;
+      text-shadow: 2px 2px 6px rgba(0,137,123,0.2);
+    }
+
+    strong {
+      color: #bf5e00;
+      font-weight: 600;
+      background: linear-gradient(120deg, #fff3e0, #ffe6cc);
+      padding: 0 4px;
+      border-radius: 8px;
+    }
+
+    /* নোটিস বক্স */
+    .notice {
+      background: #fff9e8;
+      border-left: 6px solid #ff9800;
+      border-radius: 20px;
+      padding: 18px 16px;
+      margin: 28px 0;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+      transition: all 0.25s;
+    }
+
+    .notice:hover {
+      background: #fff5e0;
+      border-left-width: 8px;
+      transform: scale(0.99);
+    }
+
+    .notice-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #e65100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    /* স্বাক্ষর অংশ */
+    .signature {
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 2px dotted #b2dfdb;
+      transition: border-color 0.2s;
+    }
+
+    .signature h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f4c5f;
+      margin: 0 0 6px;
+      letter-spacing: -0.2px;
+    }
+
+    .designation {
+      font-size: 16px;
+      line-height: 1.55;
+      color: #4a627a;
+      font-weight: 500;
+    }
+
+    .separator {
+      margin: 18px 0;
+      color: #80cbc4;
+      font-size: 14px;
+      letter-spacing: 5px;
+    }
+
+    .date {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #6f8f9f;
+      font-style: normal;
+      background: #f0f7fa;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 60px;
+    }
+
+    /* ক্লিক ইফেক্ট */
+    .railway-preface:active {
+      transform: scale(0.98);
+      transition: transform 0.08s;
+    }
+
+    /* অ্যানিমেশন */
+    @keyframes fadeScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.94) translateY(18px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    /* ছোট মোবাইলে অতিরিক্ত টিউন */
+    @media (max-width: 400px) {
+      body {
+        padding: 12px 12px;
+      }
+      .railway-preface {
+        padding: 20px 16px 28px;
+      }
+      .header h2 {
+        font-size: 20px;
+      }
+      .train-icon {
+        font-size: 42px;
+      }
+      .lead:first-letter {
+        font-size: 46px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="railway-preface">
+
+  <div class="header">
+    <div class="train-icon">🚆</div>
+    <h2>বাংলাদেশ রেলওয়ের<br>সাধারণ ও আনুষঙ্গিক নিয়মাবলী</h2>
+    <div class="divider"></div>
+  </div>
+
+  <p class="lead">
+    বাংলাদেশ রেলওয়ের নিরাপদ, সুশৃঙ্খল ও দক্ষ পরিচালনার ভিত্তি হলো এর
+    <strong>সাধারণ ও আনুষঙ্গিক নিয়মাবলী</strong>। রেলওয়ে আইন, ১৮৯০
+    (৯ নং আইন)-এর ৪৭ ধারায় প্রদত্ত ক্ষমতাবলে সরকার কর্তৃক প্রণীত এই
+    নিয়মাবলীর সূচনা ব্রিটিশ ভারতের সময়ে।
+  </p>
+
+  <p>
+    পরবর্তীতে ১৯৫০ সালের ১৫ জুন তৎকালীন পাকিস্তান সরকারের রেলওয়ে বিভাগ
+    পূর্ববর্তী বিধিমালা রহিত করে নতুন সাধারণ নিয়মাবলী প্রবর্তন করে।
+    তবে পূর্ববর্তী ও পরবর্তী নিয়মাবলীর মধ্যে মৌলিক কোনো পার্থক্য ছিল না;
+    বরং উভয়ের লক্ষ্য ছিল ট্রেন পরিচালনা ও রেলওয়ে ব্যবস্থাপনায় সর্বোচ্চ
+    নিরাপত্তা নিশ্চিত করা।
+  </p>
+
+  <p>
+    সাধারণ নিয়মাবলীর আওতায় রেলওয়ে প্রশাসন কর্তৃক প্রণীত সহায়ক
+    বিধানসমূহকে আনুষঙ্গিক নিয়মাবলী বলা হয়। দীর্ঘদিন ধরে এসব নিয়মাবলী
+    জটিল আইনগত ভাষায় ইংরেজিতে রচিত থাকায় অনেক কর্মচারীর পক্ষে তা
+    যথাযথভাবে অনুধাবন ও প্রয়োগ করা কঠিন ছিল।
+  </p>
+
+  <p>
+    বাংলা ভাষার সর্বজনীন ব্যবহারের লক্ষ্যে সরকারের গৃহীত নীতির আলোকে
+    রেলওয়ে পরিচালনার জন্য প্রয়োজনীয় সাধারণ ও আনুষঙ্গিক নিয়মাবলীর
+    গুরুত্বপূর্ণ অংশসমূহ বাংলায় অনূদিত হয়েছে। এর ফলে সংশ্লিষ্ট
+    কর্মকর্তা-কর্মচারীদের জন্য বিধানসমূহ সহজে বোঝা, অনুসরণ করা এবং
+    বাস্তব কাজে প্রয়োগ করা আরও সুবিধাজনক হবে বলে আশা করা যায়।
+  </p>
+
+  <div class="notice">
+    <div class="notice-title">
+      ⚠ গুরুত্বপূর্ণ ঘোষণা
+    </div>
+    বাংলায় অনূদিত পাঠের অর্থ বা ব্যাখ্যা নিয়ে কোনো আইনগত প্রশ্ন বা
+    জটিলতা দেখা দিলে ইংরেজি ভাষায় প্রণীত মূল নিয়মাবলীই চূড়ান্ত,
+    কার্যকর ও বলবৎ দলিল হিসেবে গণ্য হবে।
+  </div>
+
+  <div class="signature">
+    <h3>মোস্তাক আহমদ চৌধুরী</h3>
+    <div class="designation">
+      অতিরিক্ত মহাপরিচালক (পরিচালন)<br>
+      বাংলাদেশ রেলওয়ে
+    </div>
+    <div class="separator">✦ ✦ ✦</div>
+    <div class="designation">
+      অতিরিক্ত সচিব<br>
+      রেলপথ বিভাগ, ঢাকা
+    </div>
+    <div class="date">
+      ১২ শ্রাবণ ১৩৯৪ বঙ্গাব্দ<br>
+      ২৯ জুলাই ১৯৮৭ খ্রিস্টাব্দ
+    </div>
+  </div>
+
+</div>
+
+<!-- কপি, কাট, ডান-ক্লিক ব্লক করার স্ক্রিপ্ট -->
+<script>
+  (function() {
+    const container = document.querySelector('.railway-preface');
+    if (!container) return;
+
+    // ডান-ক্লিক বন্ধ
+    container.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    // কপি বন্ধ
+    container.addEventListener('copy', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    // কাট বন্ধ
+    container.addEventListener('cut', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    // মোবাইলে লং-প্রেস (টেক্সট সিলেক্ট) থেকে বাঁচতে
+    container.addEventListener('selectstart', function(e) {
+      e.preventDefault();
+      return false;
+    });
+  })();
+</script>
+
+</body>
+</html>
